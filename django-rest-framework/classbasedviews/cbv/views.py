@@ -1,5 +1,6 @@
 from rest_framework.generics import (
-    CreateAPIView, ListAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView
+    CreateAPIView, ListAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, ListCreateAPIView,
+    RetrieveUpdateAPIView, RetrieveDestroyAPIView, RetrieveUpdateDestroyAPIView
 )
 from .serializers import * 
 
@@ -22,5 +23,25 @@ class MovieDeleteView(DestroyAPIView):
 
 
 class MovieUpdateView(UpdateAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+
+class MovieListCreateView(ListCreateAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+
+class MovieRetrieveUpdateView(RetrieveUpdateAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+
+class MovieRetrieveDestroyView(RetrieveDestroyAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+
+class MovieRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
