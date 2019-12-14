@@ -1,0 +1,10 @@
+<html>
+  <title>Create Contact Info</title>
+  <body>
+    <form action="{% url 'contact_info' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
