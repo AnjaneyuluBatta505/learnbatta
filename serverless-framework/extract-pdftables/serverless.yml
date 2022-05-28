@@ -1,0 +1,15 @@
+	
+service: example-service
+ 
+provider:
+  name: aws
+  ecr:
+    # In this section you can define images that will be built locally and uploaded to ECR
+    images:
+      extract_pdf_tables:
+        path: ./pdf-table-extract
+ 
+functions:
+  hello:
+    image:
+      name: extract_pdf_tables
