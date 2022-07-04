@@ -13,7 +13,7 @@ class House:
         print(f"walls: {self.walls}")
         print(f"windows: {self.windows}")
         print(f"doors: {self.doors}")
-        print(f"roof: {self.roof}")
+        print(f"roof: {self.roof}\n")
 
 
 class AbsHouseBuilder(ABC):
@@ -63,6 +63,29 @@ class SimpleHouseBuilder(AbsHouseBuilder):
         return self.house
 
 
+class IglooHouseBuilder(AbsHouseBuilder):
+    def __init__(self):
+        self.house = House()
+
+    def build_basement(self):
+        self.house.basement = "Ice basement"
+
+    def build_walls(self):
+        self.house.walls = "round wall"
+
+    def build_windows(self):
+        self.house.windows = "no windows"
+
+    def build_doors(self):
+        self.house.doors = "1 wooden door"
+
+    def build_roof(self):
+        self.house.roof = "Ice roof"
+    
+    def get_house(self):
+        return self.house
+
+
 class HouseDirector:
     def __init__(self, builder):
         self.builder = builder
@@ -77,7 +100,8 @@ class HouseDirector:
 
 
 if __name__ == '__main__':
-    builder = SimpleHouseBuilder()
-    director = HouseDirector(builder)
-    house = director.construct()
-    house.get_info()
+    builders = [SimpleHouseBuilder(), IglooHouseBuilder()]
+    for builder in builders:
+        director = HouseDirector(builder)
+        house = director.construct()
+        house.get_info()
