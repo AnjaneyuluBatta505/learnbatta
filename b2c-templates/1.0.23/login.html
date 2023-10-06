@@ -1274,7 +1274,7 @@
     }
     // check if referrer is change password
     if (getCookie("prevPage") === "changePassword") {
-      const ele = document.getElementById("#id_password_reset_msg")
+      const ele = document.getElementById("id_password_reset_msg")
       ele.innerHTML = "Your password has been reset";
       setCookie("prevPage", "", 300);
     }
