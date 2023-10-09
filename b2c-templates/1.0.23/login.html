@@ -1117,10 +1117,6 @@
       background: #3d3d3d;
     }
 
-    div[data-tenant-branding-background-color=true]#background_branding_container {
-      background: #3d3d3d !important;
-    }
-
     h1 {
       display: none;
     }
@@ -1198,33 +1194,73 @@
       display: none !important;
     }
   </style>
-
-
-  <link href="static/css/main.css?e1cf812372b1319a15d7" rel="stylesheet">
-
-
   <style>
+    /* SES CUSTOM STYLES */
+    /* fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+    /* end */
+    * {
+      font-family: "Open Sans";
+      font-size: 12px;
+    }
+    html,
+    div[data-tenant-branding-background-color=true]#background_branding_container,
+    .unified_container .row .panel-default {
+      background: #282828;
+      border: none;
+      font-family: "Open Sans";
+    }
     .company-logo {
       color: white;
       font-size: 48px;
       font-weight: 700;
       text-align: center;
+      font-family: "Open Sans";
+      margin: 30px 0 25px 0;
+      padding-top: 10px;
     }
-
-    .unified_container .row .panel-default {
-      border: 0;
-      border-radius: 5px;
-      background: #3d3d3d;
+    .unified_container .row .panel-default{
+      margin: 0 35rem;
     }
-  </style>
-
-  <style>
+    .unified_container .row .panel-default .panel-body {
+      margin: 80px auto 0 auto;
+      max-width: 100%;
+    }
+    .unified_container .row .panel-default #api .localAccount {
+      padding: 18px;
+    }
     .unified_container .row .panel-default #api .localAccount .entry .entry-item input {
-      background-color: #282828;
+      background-color: #3D3D3D;
       border-bottom: none;
       border-radius: 5px;
       color: white;
-      padding-left: 8px;
+      text-indent: 16px;
+      font-size: 14px;
+      height: 32px;
+    }
+    .unified_container .row .panel-default #api .localAccount .entry .entry-item {
+      padding: 8px 0 0 0;
+      margin: 0 0 10px 0;
+      height: 80px;
+    }
+    .unified_container .row .panel-default #api .localAccount .entry .entry-item input::placeholder {
+      color: #3D3D3D;
+    }
+    .unified_container .row .panel-default #api .localAccount .entry .buttons button {
+      font-family: 'Open Sans';
+      text-transform: capitalize;
+      width: 160px;
+      margin-top: -10px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .unified_container .row .panel-default #api .localAccount .entry .entry-item .password-label #forgotPassword{
+      bottom: -25px;
+    }
+    .unified_container .row .panel-default #api .entry-item::before {
+      font-size: 12px;
+      color: #7e7e7e;
+      position: relative;
     }
     #id_password_reset_msg {
       color: #fff;
@@ -1237,12 +1273,12 @@
   <div id=background_branding_container data-tenant-branding-background-color=true></div>
   <div class="container unified_container" role=presentation>
     <div class=row>
-      <div class=col-lg-6>
+      <div class="col-lg-12">
         <div class="panel panel-default">
           <div class=panel-body>
             <div class="company-logo">SES 360</div>
             <div id="id_password_reset_msg"></div>
-            <div id=api role=main>
+            <div id="api" role="main">
             </div>
           </div>
         </div>
